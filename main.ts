@@ -1,13 +1,16 @@
+music.setVolume(255)
+light.setBrightness(255)
+// Presets the volume and brightness to max
 while (true) {
-    music.setVolume(255)
-    light.setBrightness(255)
-    if (3 < input.acceleration(Dimension.Z) && input.acceleration(Dimension.Z) < -3) {
-        light.setAll(light.rgb(0, 255, 0))
-        music.wawawawaa.playUntilDone()
+    // The loop that will continue to run as long as at least one of the targets below are met    
+    if (10 < input.acceleration(Dimension.X) && input.acceleration(Dimension.X) < -10 || 10 < input.acceleration(Dimension.Y) && input.acceleration(Dimension.Y) < -10) {
+        light.setAll(light.rgb(255, 255, 255))
+        // turn Camera on and (take picture) or (start recording):
+        music.siren.playUntilDone()
         pause(3000)
-    } else if (3 >= input.acceleration(Dimension.Z) && input.acceleration(Dimension.Z) >= -3) {
+    } else if (10 >= input.acceleration(Dimension.X) && input.acceleration(Dimension.X) >= -10 || 10 >= input.acceleration(Dimension.Y) && input.acceleration(Dimension.Y) >= -10) {
         music.stopAllSounds()
-        light.setAll(light.rgb(255, 0, 0))
+        light.setAll(light.rgb(0, 0, 0))
     }
     
 }
